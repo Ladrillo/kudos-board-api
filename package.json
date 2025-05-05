@@ -1,18 +1,17 @@
 {
   "name": "kudos-board-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "prisma": "prisma",
     "prisma:init": "npx prisma migrate dev --name init",
-    "prisma:reset": "npx prisma migrate reset --force"
+    "prisma:reset": "npx prisma migrate reset --force",
+    "psql": "scripts/psql.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ladrillo/kudos-board-api.git"
   },
-  "keywords": [],
   "author": "Gabriel Cabrejas",
   "dependencies": {
     "@prisma/client": "^6.7.0",
