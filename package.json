@@ -5,7 +5,8 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "prisma": "prisma",
-    "prisma:init": "npx prisma migrate dev --name init"
+    "prisma:init": "npx prisma migrate dev --name init",
+    "prisma:reset": "npx prisma migrate reset --force"
   },
   "repository": {
     "type": "git",

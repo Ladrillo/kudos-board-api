@@ -13,7 +13,7 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Post {
+model posts {
   id        Int      @id @default(autoincrement())
   title     String
   content   String?
