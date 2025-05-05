@@ -8,6 +8,7 @@
     "prisma:seed": "node prisma/seed.js",
     "prisma:init": "npx prisma migrate dev --name init",
     "prisma:reset": "npx prisma migrate reset --force",
+    "resetdb": "npm run prisma:reset && npm run prisma:init && npm run prisma:seed",
     "psql": "scripts/psql.sh"
   },
   "repository": {
