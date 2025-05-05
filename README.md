@@ -5,7 +5,8 @@
     ```text
     POSTGRES_USER="ladygaga"
     POSTGRES_PASSWORD="1234"
-    POSTGRES_DB="1234"
+    POSTGRES_DB="gagadb"
+    POSTGRES_URL="postgresql://ladygaga:1234@postgres:5432/gagadb?schema=public"
     ```
 
     Replace `ladygaga`, `gagadb`, and `1234` with desired values.
