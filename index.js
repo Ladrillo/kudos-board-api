@@ -4,6 +4,10 @@ const prisma = require('./prisma/prisma')
 
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.json({ status: 'up' })
+})
+
 app.get('/posts', async (req, res) => {
   try {
     const posts = await prisma.posts.findMany()
