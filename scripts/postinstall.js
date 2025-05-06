@@ -4,4 +4,4 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Running postinstall tasks for production...')
   execSync('prisma migrate deploy', { stdio: 'inherit' })
 }
-execSync('npm run prisma:seed', { stdio: 'inherit' })
+execSync('prisma db seed', { stdio: 'inherit' })
