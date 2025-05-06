@@ -2,7 +2,7 @@
   "name": "kudos-board-api",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "prisma generate",
+    "postinstall": "node scripts/postinstall.js",
     "dev": "node --env-file=.env --watch index.js",
     "start": "node index.js",
     "prisma:seed": "prisma/seed.js",
