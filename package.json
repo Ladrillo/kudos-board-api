@@ -1,29 +1,30 @@
 {
   "name": "kudos-board-api",
   "version": "0.0.1",
-  "scripts": {
-    "postinstall": "node scripts/postinstall.js",
-    "dev": "node --env-file=.env --watch index.js",
-    "start": "node index.js",
-    "prisma:seed": "prisma/seed.js",
-    "prisma:init": "prisma migrate dev --name init",
-    "prisma:reset": "prisma migrate reset --force",
-    "resetdb": "npm run prisma:reset && npm run prisma:init && npm run prisma:seed",
-    "psql": "scripts/psql.sh"
-  },
+  "author": "Gabriel Cabrejas",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ladrillo/kudos-board-api.git"
+    "url": "https://github.com/Ladrillo/kudos-board-api.git"
   },
-  "author": "Gabriel Cabrejas",
+  "scripts": {
+    "dev": "node --env-file=.env --watch index.js",
+    "start": "node index.js",
+    "postinstall": "node scripts/postinstall.js",
+    "db:generate": "prisma generate",
+    "db:init": "prisma migrate dev --name init",
+    "db:reset": "prisma migrate reset --force",
+    "db:seed": "node prisma/seed.js",
+    "db:setup": "npm run db:reset && npm run db:init && npm run db:seed",
+    "psql": "sh scripts/psql.sh"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "dependencies": {
     "@prisma/client": "^6.7.0",
     "express": "^4.21.2"
   },
   "devDependencies": {
     "prisma": "^6.7.0"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.js"
   }
 }

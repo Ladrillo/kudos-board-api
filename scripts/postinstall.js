@@ -1,7 +1,15 @@
-const { execSync } = require('child_process')
-execSync('prisma generate', { stdio: 'inherit' })
-if (process.env.NODE_ENV === 'production') {
-  console.log('Running postinstall tasks for production...')
-  execSync('prisma migrate deploy', { stdio: 'inherit' })
+const { execSync } = require('child_process');
+
+function run(cmd) {
+  console.log(`\n> ${cmd}`);
+  execSync(cmd, { stdio: 'inherit' });
 }
-execSync('prisma db seed', { stdio: 'inherit' })
+
+run('prisma generate');
+
+if (process.env.NODE_ENV === 'production') {
+  console.log('Running production postinstall tasks...');
+  run('prisma migrate deploy');
+}
+
+run('prisma db seed');
