@@ -69,6 +69,19 @@ server.delete('/api/boards/:boardId/cards/:id', async (req, res, next) => {
   }
 })
 
+server.patch('/api/boards/:boardId/cards/:id', async (req, res, next) => {
+  const { id } = req.params
+  try {
+    const result = await prisma.Card.update({
+      where: { id: Number(id) },
+      data: { votes: { increment: 1 } }
+    })
+    res.status(200).json(result)
+  } catch (err) {
+    next(err)
+  }
+})
+
 server.use((err, req, res, next) => {
   let { message, stack, status } = err
   message = message || "Something unknown happened"
