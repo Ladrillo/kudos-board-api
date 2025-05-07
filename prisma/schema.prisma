@@ -14,9 +14,27 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model posts {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  createdAt DateTime @default(now())
+model Board {
+  id           Int      @id @default(autoincrement())
+  title        String
+  category     String
+  owner        String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  cards        Card[]
+}
+
+model Card {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  gif          String   // URL validation handled app-side
+  owner        String?  // optional
+  votes        Int
+  boardId      Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  board        Board    @relation(fields: [boardId], references: [id])
 }
