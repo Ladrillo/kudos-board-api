@@ -1,6 +1,11 @@
 const express = require('express')
 
-const { validateBoardId, validateCardId } = require('./middleware')
+const {
+  validateBoardId,
+  validateCardId,
+  validateBoardPayload,
+  validateCardPayload,
+} = require('./middleware')
 
 const prisma = require('../../prisma/prisma')
 
@@ -21,10 +26,10 @@ router.get('/:boardId', validateBoardId, async (req, res, next) => {
   res.json(req.board)
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', validateBoardPayload, async (req, res, next) => {
   try {
     const result = await prisma.Board.create({
-      data: req.body,
+      data: req.board,
     })
     res.status(201).json(result)
   } catch (err) {
@@ -32,7 +37,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.post('/:boardId/cards', validateBoardId, async (req, res, next) => {
+router.post('/:boardId/cards', validateBoardId, validateCardPayload, async (req, res, next) => {
   const { title, description, gif, owner } = req.body
   try {
     const result = await prisma.Card.create({
