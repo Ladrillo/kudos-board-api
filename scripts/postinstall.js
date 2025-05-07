@@ -11,5 +11,3 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Running production postinstall tasks...');
   run('prisma migrate deploy');
 }
-
-run('prisma db seed');
