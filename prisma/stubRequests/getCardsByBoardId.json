@@ -1,5 +1,7 @@
-[
-  {
+{
+  "requestURL": "https://example.onrender.com/boards/2/cards",
+  "data": [
+    {
       "card_id": 13,
       "title": "Wishing you...",
       "description": "All the best on your next adventure!",
@@ -9,8 +11,8 @@
       "createdAt": "2025-04-22T17:58:26.860Z",
       "updatedAt": "2025-04-22T17:58:26.860Z",
       "board_id": 2
-  },
-  {
+    },
+    {
       "card_id": 14,
       "title": "Thank you!!",
       "description": " You were such a great coworker! We'll miss having you around 🥲",
@@ -20,8 +22,8 @@
       "createdAt": "2025-04-22T17:58:55.402Z",
       "updatedAt": "2025-04-22T17:58:55.402Z",
       "board_id": 2
-  },
-  {
+    },
+    {
       "card_id": 15,
       "title": "You're Gonna Do Great!",
       "description": "I can't wait to see what you do next! ",
@@ -31,8 +33,8 @@
       "createdAt": "2025-04-22T18:00:01.399Z",
       "updatedAt": "2025-04-22T18:00:01.399Z",
       "board_id": 2
-  },
-  {
+    },
+    {
       "card_id": 20,
       "title": "Cya Bestie!!!",
       "description": "I'll miss my work bestie 🥲",
@@ -42,5 +44,6 @@
       "createdAt": "2025-04-22T18:08:05.932Z",
       "updatedAt": "2025-04-22T18:08:05.932Z",
       "board_id": 2
-  }
-]
+    }
+  ]
+}

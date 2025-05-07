@@ -1,0 +1,20 @@
+{
+  "requestUrl": "https://example.onrender.com/boards/14/cards",
+  "payload": {
+    "title": "New Card Title",
+    "description": "Card Description Text",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPTFhNTU1MDY1NjZ6cG1lMmVpemFtZzZlN2NkYnljdTdrYjAxa2xnc2VlZW54NHE5aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/krewXUB6LBja/giphy.gif",
+    "owner": "Optional Owner"
+  },
+  "data": {
+    "card_id": 21,
+    "title": "New Card Title",
+    "description": "Card Description Text",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPTFhNTU1MDY1NjZ6cG1lMmVpemFtZzZlN2NkYnljdTdrYjAxa2xnc2VlZW54NHE5aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/krewXUB6LBja/giphy.gif",
+    "owner": "Optional Owner",
+    "votes": 0,
+    "createdAt": "2025-05-07T17:45:02.838Z",
+    "updatedAt": "2025-05-07T17:45:02.838Z",
+    "board_id": 14
+  }
+}

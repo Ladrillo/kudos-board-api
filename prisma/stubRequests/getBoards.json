@@ -1,6 +1,6 @@
 {
-  "requestURL":"https://site-kudos-board-exemplar-backend.onrender.com/boards",
-  "boards": [
+  "requestURL": "https://example.onrender.com/boards",
+  "data": [
     {
       "board_id": 1,
       "title": "Congrats Interns!",

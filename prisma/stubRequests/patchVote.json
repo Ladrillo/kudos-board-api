@@ -1,0 +1,9 @@
+{
+  "requestUrl": "https://example.onrender.com/boards/2",
+  "payload": {
+    "votes": 1
+  },
+  "data": {
+    "votes": 1
+  }
+}

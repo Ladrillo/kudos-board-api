@@ -1,0 +1,16 @@
+{
+  "requestUrl": "https://example.onrender.com/boards",
+  "payload": {
+    "title": "New Board Title",
+    "category": "Thank You",
+    "owner": "Gabe"
+  },
+  "data": {
+    "board_id": 15,
+    "title": "New Board Title",
+    "category": "Thank You",
+    "owner": "Gabe",
+    "createdAt": "2025-05-07T17:48:41.481Z",
+    "updatedAt": "2025-05-07T17:48:41.481Z"
+  }
+}
