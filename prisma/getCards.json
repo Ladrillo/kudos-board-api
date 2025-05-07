@@ -1,0 +1,46 @@
+[
+  {
+      "card_id": 13,
+      "title": "Wishing you...",
+      "description": "All the best on your next adventure!",
+      "gif": "https://media2.giphy.com/media/v1.Y2lkPTFhNTU1MDY1M2pvaTBuMjA3OXplN2Nnb3A1YWlwYjk0djhoZnlqOTd1c2Q3dTc2aCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2579DBoBNLM1qBs2zV/giphy.gif",
+      "owner": "Marie",
+      "votes": 0,
+      "createdAt": "2025-04-22T17:58:26.860Z",
+      "updatedAt": "2025-04-22T17:58:26.860Z",
+      "board_id": 2
+  },
+  {
+      "card_id": 14,
+      "title": "Thank you!!",
+      "description": " You were such a great coworker! We'll miss having you around 🥲",
+      "gif": "https://media4.giphy.com/media/v1.Y2lkPTFhNTU1MDY1cWs2MGtqYmM1M21pemVzbmNsMnVsOHFpMGN4a3ZzNWsyM21vcGZ4dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/21HtXqCprrU7Xsr0qo/giphy.gif",
+      "owner": "",
+      "votes": 0,
+      "createdAt": "2025-04-22T17:58:55.402Z",
+      "updatedAt": "2025-04-22T17:58:55.402Z",
+      "board_id": 2
+  },
+  {
+      "card_id": 15,
+      "title": "You're Gonna Do Great!",
+      "description": "I can't wait to see what you do next! ",
+      "gif": "https://media2.giphy.com/media/v1.Y2lkPTFhNTU1MDY1dzBiZDFzb2YxZ2QxNnE1enJncnJ0Z2Y1bTdvcWYyaG10Y2k0bW16ZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VzWk94hZcgcf5vV3x2/giphy.gif",
+      "owner": "",
+      "votes": 0,
+      "createdAt": "2025-04-22T18:00:01.399Z",
+      "updatedAt": "2025-04-22T18:00:01.399Z",
+      "board_id": 2
+  },
+  {
+      "card_id": 20,
+      "title": "Cya Bestie!!!",
+      "description": "I'll miss my work bestie 🥲",
+      "gif": "https://media1.giphy.com/media/v1.Y2lkPTFhNTU1MDY1eTd3dDRkZmNqdzVudXJ2N2QzNDZpODJuajQ0MGkxbGE0dHJpcWZxdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbSBx9HCdWolg2K7Vq/giphy.gif",
+      "owner": "",
+      "votes": 0,
+      "createdAt": "2025-04-22T18:08:05.932Z",
+      "updatedAt": "2025-04-22T18:08:05.932Z",
+      "board_id": 2
+  }
+]

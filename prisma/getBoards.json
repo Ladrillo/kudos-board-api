@@ -1,0 +1,85 @@
+{
+  "requestURL":"https://site-kudos-board-exemplar-backend.onrender.com/boards",
+  "boards": [
+    {
+      "board_id": 1,
+      "title": "Congrats Interns!",
+      "category": "Celebration",
+      "owner": "CodePath",
+      "createdAt": "2025-04-22T15:25:23.463Z",
+      "updatedAt": "2025-04-22T15:25:23.463Z"
+    },
+    {
+      "board_id": 2,
+      "title": "All The Best!",
+      "category": "Thank You",
+      "owner": "Jane Smith",
+      "createdAt": "2025-04-22T15:25:23.463Z",
+      "updatedAt": "2025-04-22T15:25:23.463Z"
+    },
+    {
+      "board_id": 4,
+      "title": "Dream Vacations",
+      "category": "Inspiration",
+      "owner": "Me",
+      "createdAt": "2025-04-22T17:25:59.472Z",
+      "updatedAt": "2025-04-22T17:25:59.472Z"
+    },
+    {
+      "board_id": 5,
+      "title": "Happy Birthday Trenisha!",
+      "category": "Celebration",
+      "owner": "CodePath",
+      "createdAt": "2025-04-22T17:26:51.560Z",
+      "updatedAt": "2025-04-22T17:26:51.560Z"
+    },
+    {
+      "board_id": 6,
+      "title": "Good Luck Armand!",
+      "category": "Thank You",
+      "owner": "CodePath Team",
+      "createdAt": "2025-04-22T17:37:06.727Z",
+      "updatedAt": "2025-04-22T17:37:06.727Z"
+    },
+    {
+      "board_id": 7,
+      "title": "Starr's Graduation Board",
+      "category": "Celebration",
+      "owner": "Mom & Dad",
+      "createdAt": "2025-04-22T17:37:57.305Z",
+      "updatedAt": "2025-04-22T17:37:57.305Z"
+    },
+    {
+      "board_id": 8,
+      "title": "Thanks a Bunch 😄",
+      "category": "Thank You",
+      "owner": "Julien",
+      "createdAt": "2025-04-22T17:39:02.807Z",
+      "updatedAt": "2025-04-22T17:39:02.807Z"
+    },
+    {
+      "board_id": 9,
+      "title": "Happy Birthday Bestie!",
+      "category": "Celebration",
+      "owner": "Your BFF",
+      "createdAt": "2025-04-22T17:40:15.789Z",
+      "updatedAt": "2025-04-22T17:40:15.789Z"
+    },
+    {
+      "board_id": 11,
+      "title": "Congratulations!!!",
+      "category": "Celebration",
+      "owner": "ME!!!",
+      "createdAt": "2025-04-22T18:04:03.674Z",
+      "updatedAt": "2025-04-22T18:04:03.674Z"
+    },
+    {
+      "board_id": 12,
+      "title": "Happy Birthday!!!",
+      "category": "Celebration",
+      "owner": "ME",
+      "createdAt": "2025-04-22T18:12:11.773Z",
+      "updatedAt": "2025-04-22T18:12:11.773Z"
+    }
+  ]
+}
