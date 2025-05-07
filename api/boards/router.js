@@ -1,5 +1,7 @@
 const express = require('express')
 
+const { validateBoardId, validateCardId } = require('./middleware')
+
 const prisma = require('../../prisma/prisma')
 
 const router = express.Router()
@@ -15,17 +17,8 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:boardId', async (req, res, next) => {
-  const { boardId } = req.params
-  try {
-    const boards = await prisma.Board.findUnique({
-      where: { id: Number(boardId) },
-      include: { cards: true },
-    })
-    res.json(boards)
-  } catch (err) {
-    next(err)
-  }
+router.get('/:boardId', validateBoardId, async (req, res, next) => {
+  res.json(req.board)
 })
 
 router.post('/', async (req, res, next) => {
@@ -39,12 +32,11 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.post('/:boardId/cards', async (req, res, next) => {
-  const { boardId } = req.params
+router.post('/:boardId/cards', validateBoardId, async (req, res, next) => {
   const { title, description, gif, owner } = req.body
   try {
     const result = await prisma.Card.create({
-      data: { title, description, gif, owner, votes: 0, boardId: Number(boardId) },
+      data: { title, description, gif, owner, votes: 0, boardId: req.board.id },
     })
     res.status(201).json(result)
   } catch (err) {
@@ -52,11 +44,10 @@ router.post('/:boardId/cards', async (req, res, next) => {
   }
 })
 
-router.delete('/:boardId', async (req, res, next) => {
-  const { boardId } = req.params
+router.delete('/:boardId', validateBoardId, async (req, res, next) => {
   try {
     const result = await prisma.Board.delete({
-      where: { id: Number(boardId) },
+      where: { id: req.board.id },
     })
     res.status(200).json(result)
   } catch (err) {
@@ -64,7 +55,7 @@ router.delete('/:boardId', async (req, res, next) => {
   }
 })
 
-router.delete('/:boardId/cards/:cardId', async (req, res, next) => {
+router.delete('/:boardId/cards/:cardId', validateBoardId, validateCardId, async (req, res, next) => {
   const { cardId } = req.params
   try {
     const result = await prisma.Card.delete({
@@ -76,7 +67,7 @@ router.delete('/:boardId/cards/:cardId', async (req, res, next) => {
   }
 })
 
-router.patch('/:boardId/cards/:cardId', async (req, res, next) => {
+router.patch('/:boardId/cards/:cardId', validateBoardId, validateCardId, async (req, res, next) => {
   const { cardId } = req.params
   try {
     const result = await prisma.Card.update({
