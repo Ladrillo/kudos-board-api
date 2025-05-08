@@ -20,12 +20,11 @@ function NewBoardForm({ setModal }) {
     e.preventDefault()
     try {
       await postBoard(values)
-      setValues(initialValues())
+      setModal(false)
     } catch (e) {
       console.warn('NewBoardForm not wiping form as something went wrong')
     }
   }
-
   return (
     <div>
       <div>
