@@ -5,6 +5,41 @@ export const BoardsContext = createContext()
 export default function BoardsProvider(props) {
   const [boards, setBoards] = useState(null)
 
+  async function postBoard({ title, owner, category }) {
+    try {
+      const res = await fetch('/api/boards', {
+        method: 'POST',
+        body: JSON.stringify({ title, owner, category }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      const json = await res.json()
+      if (!res.ok) throw new Error('Request failed...')
+      setBoards(boards => {
+        return [...boards, json]
+      })
+    } catch (e) {
+      console.warn('postBoard operation failed')
+      throw e
+    }
+  }
+
+  async function deleteBoard(id) {
+    try {
+      const res = await fetch(`/api/boards/${id}`, {
+        method: 'DELETE',
+      })
+      if (!res.ok) throw new Error('Request failed...')
+      setBoards(boards => {
+        return boards.filter(b => b.id != id)
+      })
+    } catch (e) {
+      console.warn('deleteBoard operation failed')
+      throw e
+    }
+  }
+
   useEffect(() => {
     async function getBoards() {
       const res = await fetch(`/api/boards`)
@@ -15,7 +50,7 @@ export default function BoardsProvider(props) {
   }, [])
 
   return (
-    <BoardsContext.Provider value={{ boards }}>
+    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard }}>
       {props.children}
     </BoardsContext.Provider>
   )

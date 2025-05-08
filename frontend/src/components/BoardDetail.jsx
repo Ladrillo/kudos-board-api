@@ -22,7 +22,7 @@ function BoardDetail() {
         <div>{board.title}</div>
         <div>{board.owner}</div>
         <div>{
-          board.cards.map(card => {
+          board.cards?.map(card => {
             return (
               <div className='card' key={card.id}>
                 <div>{card.title}</div>

@@ -1,20 +1,21 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { BoardsContext } from '../contexts/boardsApi'
 import BoardCard from './BoardCard'
-import { Link } from 'react-router'
+import NewBoardForm from './NewBoardForm'
 
 function Home() {
-  const { boards } = useContext(BoardsContext)
+  const [modal, setModal] = useState(false)
+  const { boards, deleteBoard } = useContext(BoardsContext)
   return (
     <div>
       <h1>Boards</h1>
+      {modal && <NewBoardForm setModal={setModal} />}
+      <button onClick={() => setModal(true)}>Create New Board</button>
       <div>
         {
           boards?.map(brd => {
             return (
-              <Link key={brd.id} to={`${brd.id}`}>
-                <BoardCard board={brd} />
-              </Link>
+              <BoardCard key={brd.id} board={brd} deleteBoard={deleteBoard} />
             )
           })
         }
