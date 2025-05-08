@@ -1,11 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+console.log(import.meta.env)
+const IS_PROD = import.meta.env.MODE === "production"
+const baseUrl = IS_PROD ? '/' : 'http://localhost:3000/'
+
 function App() {
   const [count, setCount] = useState(0)
+  const [apiData, setApiData] = useState(null)
 
+  useEffect(() => {
+    async function getBoards() {
+      const res = await fetch(`${baseUrl}api/boards`)
+      const json = await res.json()
+      setApiData(json)
+    }
+    getBoards()
+  }, [])
+
+  console.log(apiData)
   return (
     <>
       <div>

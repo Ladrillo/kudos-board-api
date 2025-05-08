@@ -1,10 +1,14 @@
 const path = require('path')
 const express = require('express')
 const boardsRouter = require('./boards/router')
+const cors = require('cors')
+const helmet = require('helmet')
 
 const server = express()
 
 server.use(express.json())
+server.use(helmet())
+server.use(cors())
 
 server.use(express.static(path.join(__dirname, '../', 'frontend', 'dist')))
 
