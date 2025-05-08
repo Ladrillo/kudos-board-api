@@ -4,7 +4,7 @@
 npm install
 
 # Install react deps
-cd frontend && npm install
+cd frontend && npm install --include=dev
 
 # Build react app
 npm run build
