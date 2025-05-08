@@ -8,7 +8,9 @@ const server = express()
 
 server.use(express.json())
 server.use(helmet())
-server.use(cors())
+server.use(cors({
+  origin: ['http://localhost:3000'], // prod is same origin
+}))
 
 server.use(express.static(path.join(__dirname, '../', 'frontend', 'dist')))
 
@@ -25,6 +27,7 @@ server.use('*', (req, res) => {
   res.status(404).json({ message: "What you are looking for is not here" })
 })
 
+// Error handling
 server.use((err, req, res, next) => { // error handling
   let { message, stack, status } = err
   message = message || "Something unknown happened"
@@ -36,7 +39,7 @@ Status: ${status}
 Stack: ${stack}
 \nERROR END ===============\n`)
 
-  res.status(status).json({ message, stack })
+  res.status(status).json({ message, stack }) // Unsafe in prod
 })
 
 module.exports = server
