@@ -1,16 +1,25 @@
+const path = require('path')
 const express = require('express')
+const boardsRouter = require('./boards/router')
 
 const server = express()
 
 server.use(express.json())
 
-const boardsRouter = require('./boards/router')
+server.use(express.static(path.join(__dirname, '../', 'frontend', 'dist')))
 
-server.get('/', (req, res) => {
-  res.json({ status: 'server is up' })
+// API
+server.use('/api/boards', boardsRouter)
+
+// SPA
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
 })
 
-server.use('/api/boards', boardsRouter)
+// 404
+server.use('*', (req, res) => {
+  res.status(404).json({ message: "What you are looking for is not here" })
+})
 
 server.use((err, req, res, next) => { // error handling
   let { message, stack, status } = err
