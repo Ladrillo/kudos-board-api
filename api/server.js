@@ -28,7 +28,7 @@ server.use('*', (req, res) => {
 })
 
 // Error handling
-server.use((err, req, res, next) => { // error handling
+server.use((err, req, res, next) => {
   let { message, stack, status } = err
   message = message || "Something unknown happened"
   stack = stack || "No stack trace"
