@@ -5,9 +5,10 @@ function run(cmd) {
   execSync(cmd, { stdio: 'inherit' });
 }
 
-run('prisma generate');
-
 if (process.env.NODE_ENV === 'production') {
   console.log('Running production postinstall tasks...');
-  run('prisma migrate deploy');
+  run('npx prisma migrate reset --force --skip-seed');
+  run('npx prisma db seed');
+} else {
+  run('npx prisma generate');
 }
