@@ -5,7 +5,7 @@ function run(cmd) {
   execSync(cmd, { stdio: 'inherit' });
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.RENDER) {
   console.log('Running production postinstall tasks...');
   run('npx prisma migrate reset --force --skip-seed');
   run('npx prisma db seed');
