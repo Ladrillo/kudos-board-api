@@ -3,3 +3,12 @@
   padding: 0.5rem;
   border: 2px solid gray;
 }
+
+:has(> img) {
+  max-width: 100px;
+}
+
+.boards, .cards {
+  display: flex;
+  flex-wrap: wrap;
+}

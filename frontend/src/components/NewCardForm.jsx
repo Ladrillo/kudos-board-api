@@ -12,7 +12,7 @@ const initialValues = () => ({
 
 function NewCardForm({ boardId, setModal }) {
   const { postCard } = useContext(BoardsContext)
-  const { gifs, getGifs } = useContext(GifsContext)
+  const { gifs, getGifs, resetGifs } = useContext(GifsContext)
   const [values, setValues] = useState(initialValues())
   const onChange = e => {
     const { name, value } = e.target
@@ -25,6 +25,7 @@ function NewCardForm({ boardId, setModal }) {
     try {
       await postCard(boardId, values)
       setModal(false)
+      resetGifs()
     } catch (e) {
       console.warn('NewCardForm not wiping form as something went wrong')
     }

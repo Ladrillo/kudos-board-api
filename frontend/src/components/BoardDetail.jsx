@@ -25,13 +25,14 @@ function BoardDetail() {
       <div>
         <div>{board.title}</div>  
         <div>{board.owner}</div>
-        <div>{
+        <div className='cards'>{
           board.cards?.map(card => {
             return (
               <div className='card' key={card.id}>
                 <div>{card.title}</div>
                 {card.owner && <div>{card.owner}</div>} 
                 <div>{card.votes}</div>
+                <div><img src={card.gif} /></div>
                 <button onClick={() => upvoteCard(board.id, card.id)}>Upvote</button>
                 <button onClick={() => deleteCard(board.id, card.id)}>Delete</button>
               </div>

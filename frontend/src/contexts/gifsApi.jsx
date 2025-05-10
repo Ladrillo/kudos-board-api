@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import { useState, createContext } from 'react'
 
 export const GifsContext = createContext()
 
@@ -9,6 +9,9 @@ console.log(apiKey)
 export default function GifsProvider(props) {
   const [gifs, setGifs] = useState([])
 
+  function resetGifs() {
+    setGifs([])
+  }
   async function getGifs(search) {
     const params = new URLSearchParams({
       api_key: apiKey,
@@ -33,7 +36,7 @@ export default function GifsProvider(props) {
   }
 
   return (
-    <GifsContext.Provider value={{ gifs, getGifs }}>
+    <GifsContext.Provider value={{ gifs, getGifs, resetGifs }}>
       {props.children}
     </GifsContext.Provider>
   )
