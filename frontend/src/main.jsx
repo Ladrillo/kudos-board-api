@@ -15,6 +15,11 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path=":id" element={<BoardDetail />} />
         </Routes>
+        <footer>
+          <p>About us: We are Kudos Board!</p>
+          <p>Contact us: <a href="https://www.codepath.org/">CodePath.org</a></p>
+          <p>© {new Date().getFullYear()} Kudos Board</p>
+        </footer>
       </GifsProvider>
     </BoardsProvider>
   </BrowserRouter>

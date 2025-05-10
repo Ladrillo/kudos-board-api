@@ -8,7 +8,7 @@
   max-width: 100px;
 }
 
-.boards, .cards {
+.boards, .cards, .gifs {
   display: flex;
   flex-wrap: wrap;
 }

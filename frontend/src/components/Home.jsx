@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { BoardsContext } from '../contexts/boardsApi'
-import BoardCard from './BoardCard'
+import BoardCard from './Board'
 import NewBoardForm from './NewBoardForm'
 
 function Home() {

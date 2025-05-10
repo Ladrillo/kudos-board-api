@@ -34,6 +34,7 @@ function NewBoardForm({ setModal }) {
       <form onSubmit={onSubmit}>
         <input onChange={onChange} value={values.title} name="title" />Title
         <select onChange={onChange} value={values.category} name="category">
+          <option value="">--- Select a category ---</option>
           <option value="celebration">Celebration</option>
           <option value="inspiration">Inspiration</option>
           <option value="thankyou">Thank You</option>

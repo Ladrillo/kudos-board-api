@@ -55,7 +55,7 @@ function NewCardForm({ boardId, setModal }) {
         <input onChange={onChange} value={values.description} name="description" />Description
         <input onChange={onChange} value={values.search} name="search" />Search GIF
         <button onClick={onGetGifs}>Search</button>
-        <div>
+        <div class="gifs">
           {gifs.length &&
             gifs.map(url => (
               <div key={url} onClick={onGifSelect(url)}>

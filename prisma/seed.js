@@ -28,10 +28,10 @@ async function main() {
     data: [
       {
         title: 'Huge thanks to Maya',
-        description: 'You always go the extra mile — we see it and we appreciate it!',
+        description: 'You always go the extra mile - we see it and we appreciate it!',
         gif: 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif',
         owner: 'alice@example.com',
-        votes: 4,
+        votes: 0,
         boardId: thankYouBoard.id
       },
       {
@@ -57,7 +57,7 @@ async function main() {
   await prisma.card.createMany({
     data: [
       {
-        title: '🎉 You made it another lap, Greg!',
+        title: 'You made it another lap, Greg!',
         description: 'Hope your day is full of cake, laughs, and power naps.',
         gif: 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif',
         owner: 'carol@example.com',
@@ -66,10 +66,10 @@ async function main() {
       },
       {
         title: 'Birthday vibes only',
-        description: 'Let’s raise a toast to your awesomeness! 🥂',
+        description: 'Let\'s raise a toast to your awesomeness!',
         gif: 'https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif',
         owner: 'bob@example.com',
-        votes: 2,
+        votes: 0,
         boardId: celebrationBoard.id
       },
       {
@@ -87,8 +87,8 @@ async function main() {
   await prisma.card.createMany({
     data: [
       {
-        title: 'Start strong 💪',
-        description: '“Don’t watch the clock; do what it does. Keep going.” – Sam Levenson',
+        title: 'Start strong',
+        description: '"Don\'t watch the clock; do what it does. Keep going." - Sam Levenson',
         gif: 'https://media.giphy.com/media/l0ExdMHUDKteztyfe/giphy.gif',
         owner: null,
         votes: 4,
@@ -96,15 +96,15 @@ async function main() {
       },
       {
         title: 'Code with purpose',
-        description: '“Programs must be written for people to read.” – Harold Abelson',
+        description: '"Programs must be written for people to read." - Harold Abelson',
         gif: 'https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif',
         owner: 'carol@example.com',
         votes: 3,
         boardId: inspirationBoard.id
       },
       {
-        title: 'You’ve got this!',
-        description: 'Believe in your skills. You’re better than you think.',
+        title: 'You have got this!',
+        description: 'Believe in your skills. You are better than you think.',
         gif: 'https://media.giphy.com/media/3o6ZsWGHF1w0DmkPUI/giphy.gif',
         owner: null,
         votes: 5,
@@ -113,12 +113,12 @@ async function main() {
     ]
   })
 
-  console.log('🌱 Themed gratitude/inspiration/celebration seed data inserted.')
+  console.log('Themed gratitude, inspiration, celebration seed data inserted.')
 }
 
 main()
   .catch(e => {
-    console.error('❌ Seed error:', e)
+    console.error('Seed error:', e)
     process.exit(1)
   })
   .finally(async () => {
