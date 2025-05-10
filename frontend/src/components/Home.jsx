@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { BoardsContext } from '../contexts/boardsApi'
 import { BoardFilteringContext } from '../contexts/boardFiltering'
-import BoardCard from './Board'
+import Board from './Board'
 import NewBoardForm from './NewBoardForm'
 import SearchBox from './SearchBox'
 
@@ -59,7 +59,7 @@ function Home() {
           boardsToDisplay.length
             ? boardsToDisplay.map(brd => {
               return (
-                <BoardCard key={brd.id} board={brd} deleteBoard={deleteBoard} />
+                <Board key={brd.id} board={brd} deleteBoard={deleteBoard} />
               )
             })
             : <p>There are no boards to display.</p>

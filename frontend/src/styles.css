@@ -8,14 +8,45 @@
   --modal-box-shadow: 0 2px 20px #0000004d, 0 4px 6px #0000004d;
 }
 
-.card {
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
   margin: 0.5rem;
-  padding: 0.5rem;
-  border: 2px solid gray;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 1px 3px #0000000d, 0 4px 6px #0000001a;
+  }
+
+  .board-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+
+    h3 {
+      width: 100%;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 :has(> img) {
-  max-width: 100px;
+  max-width: 180px;
 }
 
 .boards, .cards, .gifs {
@@ -25,6 +56,8 @@
 
 .btn-group {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 button.active {
@@ -74,4 +107,31 @@ button.active {
       }
     }
   }
+}
+
+.board-link,
+.board-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.board-link:hover,
+.board-button:hover {
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.board-link:active,
+.board-button:active {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

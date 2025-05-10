@@ -17,9 +17,9 @@ function BoardDetail() {
   if (!board) return null
 
   return (
-    <div className="card">
+    <div className="board-detail">
       <a href="" onClick={goBack}>Back</a>
-      <h1>Board Detail</h1>
+      <h2>Board Detail</h2>
       {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
       <button onClick={() => setModal(true)}>Create a Card</button>
       <div>
@@ -28,7 +28,7 @@ function BoardDetail() {
         <div className='cards'>{
           board.cards?.map(card => {
             return (
-              <div className='card' key={card.id}>
+              <div className='board' key={card.id}>
                 <div>{card.title}</div>
                 {card.owner && <div>{card.owner}</div>} 
                 <div>{card.votes}</div>
