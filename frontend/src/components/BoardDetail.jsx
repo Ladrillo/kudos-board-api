@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import { BoardsContext } from '../contexts/boardsApi'
 
 function BoardDetail() {
-  const { boards } = useContext(BoardsContext)
+  const { boards, deleteCard } = useContext(BoardsContext)
   const { id } = useParams()
   const board = boards?.find(brd => brd.id == id)
   const navigate = useNavigate()
@@ -26,6 +26,8 @@ function BoardDetail() {
             return (
               <div className='card' key={card.id}>
                 <div>{card.title}</div>
+                <button>Upvote</button>
+                <button onClick={() => deleteCard(board.id, card.id)}>Delete</button>
               </div>
             )
           })

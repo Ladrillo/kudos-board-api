@@ -40,6 +40,29 @@ export default function BoardsProvider(props) {
     }
   }
 
+  async function deleteCard(boardId, cardId) {
+    try {
+      const res = await fetch(`/api/boards/${boardId}/cards/${cardId}`, {
+        method: 'DELETE',
+      })
+      if (!res.ok) throw new Error('Request failed...')
+      setBoards(boards => {
+        const boardOfInterest = boards.find(b => b.id == boardId)
+        return boards.map(b => {
+          if (b.id == boardId) {
+            return {
+              ...boardOfInterest,
+              cards: boardOfInterest.cards.filter(c => c.id != cardId)
+            }
+          }
+        })
+      })
+    } catch (e) {
+      console.warn('deleteCard operation failed')
+      throw e
+    }
+  }
+
   useEffect(() => {
     async function getBoards() {
       const res = await fetch(`/api/boards`)
@@ -50,7 +73,7 @@ export default function BoardsProvider(props) {
   }, [])
 
   return (
-    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard }}>
+    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard, deleteCard }}>
       {props.children}
     </BoardsContext.Provider>
   )
