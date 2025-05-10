@@ -121,7 +121,7 @@ button.active {
       align-self: flex-start;
       float: right;
       color: #aaa;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
       cursor: pointer;
 
@@ -151,7 +151,7 @@ button {
   cursor: pointer;
 }
 
-input {
+input, select {
   border: 1px solid #ababab;
 }
 
@@ -174,7 +174,7 @@ footer {
   padding: 2rem;
 }
 
-.create {
+.create, input[type=submit] {
   background-color: rgb(23, 162, 213);
   color: white;
   margin-bottom: 1.5rem;
@@ -184,4 +184,27 @@ footer {
 .delete {
   color: red;
   font-weight: bold;
+}
+
+form.create-board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 0;
+  align-items: center;
+
+  input, select {
+    width: 100%;
+  }
+}
+
+label {
+  margin-top: 2rem;
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+input[type=submit] {
+  margin-top: 2rem;
 }

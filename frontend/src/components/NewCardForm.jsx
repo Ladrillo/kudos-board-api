@@ -49,8 +49,8 @@ function NewCardForm({ boardId, setModal }) {
         <div className='close'>
           <button onClick={() => setModal(false)}>&times;</button>
         </div>
-        <h2>Create New Card</h2>
         <form onSubmit={onSubmit}>
+          <h2>Create New Card</h2>
           <div className="input-group">
             <label>
               Title

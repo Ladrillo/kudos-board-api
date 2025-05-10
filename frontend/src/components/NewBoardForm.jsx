@@ -31,18 +31,42 @@ function NewBoardForm({ setModal }) {
         <div className='close'>
           <button onClick={() => setModal(false)}>&times;</button>
         </div>
-        <h2>Create New Board</h2>
-        <form onSubmit={onSubmit}>
-          <input onChange={onChange} value={values.title} name="title" />Title
-          <select onChange={onChange} value={values.category} name="category">
+        <form className="create-board" onSubmit={onSubmit}>
+          <h2>Create New Board</h2>
+
+          <label htmlFor="title">Title</label>
+          <input
+            placeholder='Type a title'
+            id="title"
+            name="title"
+            value={values.title}
+            onChange={onChange}
+          />
+
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            name="category"
+            value={values.category}
+            onChange={onChange}
+          >
             <option value="">--- Select a category ---</option>
             <option value="celebration">Celebration</option>
             <option value="inspiration">Inspiration</option>
             <option value="thankyou">Thank You</option>
-          </select>Category
-          <input onChange={onChange} value={values.owner} name="owner" />Owner
+          </select>
+
+          <label htmlFor="owner">Owner</label>
+          <input
+            id="owner"
+            name="owner"
+            value={values.owner}
+            onChange={onChange}
+          />
+
           <input type="submit" />
         </form>
+
       </div>
     </div>
   )
