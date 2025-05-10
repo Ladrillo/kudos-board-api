@@ -16,3 +16,7 @@
 .btn-group {
   display: flex;
 }
+
+button.active {
+  border: 2px solid grey;
+}

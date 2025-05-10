@@ -1,21 +1,21 @@
 import { useContext, useState } from 'react'
 import { BoardsContext } from '../contexts/boardsApi'
+import { BoardFilteringContext } from '../contexts/boardFiltering'
 import BoardCard from './Board'
 import NewBoardForm from './NewBoardForm'
 import SearchBox from './SearchBox'
 
 function Home() {
   const [modal, setModal] = useState(false)
-  const [search, setSearch] = useState('')
-  const [filter, setFilter] = useState('')
   const { boards, deleteBoard } = useContext(BoardsContext)
+  const { search, setSearch, filter, setFilter } = useContext(BoardFilteringContext)
 
   const onFilter = evt => {
     setFilter(evt.target.name)
   }
 
-  function getSixMostRecent(items) {
-    return [...items]
+  function getSixMostRecent(boards) {
+    return [...boards]
       .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       .slice(0, 6)
   }
@@ -47,11 +47,11 @@ function Home() {
       {modal && <NewBoardForm setModal={setModal} />}
       <SearchBox search={search} setSearch={setSearch} />
       <div className="btn-group">
-        <button onClick={onFilter} name="">All</button>
-        <button onClick={onFilter} name="recent">Recent</button>
-        <button onClick={onFilter} name="celebration">Celebration</button>
-        <button onClick={onFilter} name="thankyou">Thank You</button>
-        <button onClick={onFilter} name="inspiration">Inspiration</button>
+        <button className={filter === "" ? 'active' : ""} onClick={onFilter} name="">All</button>
+        <button className={filter === "recent" ? 'active' : ""} onClick={onFilter} name="recent">Recent</button>
+        <button className={filter === "celebration" ? 'active' : ""} onClick={onFilter} name="celebration">Celebration</button>
+        <button className={filter === "thankyou" ? 'active' : ""} onClick={onFilter} name="thankyou">Thank You</button>
+        <button className={filter === "inspiration" ? 'active' : ""} onClick={onFilter} name="inspiration">Inspiration</button>
       </div>
       <button onClick={() => setModal(true)}>Create New Board</button>
       <div className='boards'>

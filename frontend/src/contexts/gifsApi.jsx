@@ -4,8 +4,6 @@ export const GifsContext = createContext()
 
 const apiKey = import.meta.env.VITE_GIPHY_API_KEY
 
-console.log(apiKey)
-
 export default function GifsProvider(props) {
   const [gifs, setGifs] = useState([])
 
