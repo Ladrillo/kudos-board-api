@@ -6,116 +6,114 @@ async function main() {
   await prisma.card.deleteMany()
   await prisma.board.deleteMany()
 
-  // Create boards
-  const sprintPlanning = await prisma.board.create({
-    data: { title: 'Sprint Planning Shoutouts', category: 'agile', owner: 'alice@example.com' }
+  // Create themed boards
+  const thankYouBoard = await prisma.board.create({
+    data: { title: 'Thanks for Everything, Team!', category: 'thankyou', owner: 'alice@example.com' }
   })
 
-  const productIdeas = await prisma.board.create({
-    data: { title: 'Innovation Highlights', category: 'innovation', owner: 'bob@example.com' }
+  const celebrationBoard = await prisma.board.create({
+    data: { title: 'Happy Birthday, Greg!', category: 'celebration', owner: 'bob@example.com' }
   })
 
-  const designFeedback = await prisma.board.create({
-    data: { title: 'Design Team Appreciation', category: 'ux', owner: 'carol@example.com' }
+  const inspirationBoard = await prisma.board.create({
+    data: { title: 'Monday Motivation Wall', category: 'inspiration', owner: 'carol@example.com' }
   })
 
-  const retrospective = await prisma.board.create({
-    data: { title: 'Retro Cheers', category: 'agile', owner: 'dave@example.com' }
+  const celebrationBoardNoCards = await prisma.board.create({
+    data: { title: 'Welcome Back!', category: 'celebration', owner: 'danny@example.com' }
   })
 
-  // Cards for Sprint Planning Shoutouts
+  // Cards for Thank You Board
   await prisma.card.createMany({
     data: [
       {
-        title: 'Massive thanks to Jason',
-        description: 'You nailed the planning session — clear goals and great energy!',
+        title: 'Huge thanks to Maya',
+        description: 'You always go the extra mile — we see it and we appreciate it!',
         gif: 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif',
         owner: 'alice@example.com',
-        votes: 3,
-        boardId: sprintPlanning.id
+        votes: 4,
+        boardId: thankYouBoard.id
       },
       {
-        title: 'Shoutout to Priya!',
-        description: 'Your preparation made this sprint kickoff smooth as butter.',
+        title: 'Shoutout to Alex',
+        description: 'Your help during onboarding was a game-changer. Thank you!',
         gif: 'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif',
         owner: 'bob@example.com',
-        votes: 2,
-        boardId: sprintPlanning.id
+        votes: 3,
+        boardId: thankYouBoard.id
       },
       {
-        title: 'Kudos, whole team',
-        description: 'Great collaboration and on-point story estimates!',
+        title: 'Much love to the QA crew',
+        description: 'Thanks for catching those sneaky bugs before release!',
         gif: 'https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif',
         owner: null,
-        votes: 4,
-        boardId: sprintPlanning.id
+        votes: 5,
+        boardId: thankYouBoard.id
       }
     ]
   })
 
-  // No cards for Innovation Highlights (intentional)
-
-  // Cards for Design Team Appreciation
+  // Cards for Celebration Board
   await prisma.card.createMany({
     data: [
       {
-        title: 'Thank you, Mia!',
-        description: 'Your new icon set is 🔥 — crisp, modern, and consistent.',
+        title: '🎉 You made it another lap, Greg!',
+        description: 'Hope your day is full of cake, laughs, and power naps.',
         gif: 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif',
         owner: 'carol@example.com',
         votes: 4,
-        boardId: designFeedback.id
+        boardId: celebrationBoard.id
       },
       {
-        title: 'Love the new color scheme',
-        description: 'Feels way more accessible — and it pops!',
+        title: 'Birthday vibes only',
+        description: 'Let’s raise a toast to your awesomeness! 🥂',
         gif: 'https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif',
-        owner: 'carol@example.com',
+        owner: 'bob@example.com',
         votes: 2,
-        boardId: designFeedback.id
+        boardId: celebrationBoard.id
       },
       {
-        title: 'UX wins of the week',
-        description: 'Those onboarding flow tweaks made a huge difference.',
+        title: 'Greg, you legend',
+        description: 'Wishing you a year full of great code and even better coffee.',
         gif: 'https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif',
         owner: null,
         votes: 3,
-        boardId: designFeedback.id
-      },
-      {
-        title: 'Big thanks to Diego',
-        description: 'Your accessibility audit caught things we’d missed — much appreciated.',
-        gif: 'https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif',
-        owner: 'alice@example.com',
-        votes: 5,
-        boardId: designFeedback.id
+        boardId: celebrationBoard.id
       }
     ]
   })
 
-  // Cards for Retro Cheers
+  // Cards for Inspiration Board
   await prisma.card.createMany({
     data: [
       {
-        title: 'Teamwork FTW!',
-        description: 'Despite the crunch, we stayed positive and got it done.',
+        title: 'Start strong 💪',
+        description: '“Don’t watch the clock; do what it does. Keep going.” – Sam Levenson',
         gif: 'https://media.giphy.com/media/l0ExdMHUDKteztyfe/giphy.gif',
         owner: null,
-        votes: 3,
-        boardId: retrospective.id
+        votes: 4,
+        boardId: inspirationBoard.id
       },
       {
-        title: 'Major props to Sam',
-        description: 'Handled the production bug with grace and speed.',
+        title: 'Code with purpose',
+        description: '“Programs must be written for people to read.” – Harold Abelson',
+        gif: 'https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif',
+        owner: 'carol@example.com',
+        votes: 3,
+        boardId: inspirationBoard.id
+      },
+      {
+        title: 'You’ve got this!',
+        description: 'Believe in your skills. You’re better than you think.',
         gif: 'https://media.giphy.com/media/3o6ZsWGHF1w0DmkPUI/giphy.gif',
-        owner: 'dave@example.com',
-        votes: 2,
-        boardId: retrospective.id
+        owner: null,
+        votes: 5,
+        boardId: inspirationBoard.id
       }
     ]
   })
 
-  console.log('🌱 Gratitude-themed database seeded successfully.')
+  console.log('🌱 Themed gratitude/inspiration/celebration seed data inserted.')
 }
 
 main()

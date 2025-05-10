@@ -33,7 +33,11 @@ function NewBoardForm({ setModal }) {
       <h2>Create New Board</h2>
       <form onSubmit={onSubmit}>
         <input onChange={onChange} value={values.title} name="title" />Title
-        <input onChange={onChange} value={values.category} name="category" />Category
+        <select onChange={onChange} value={values.category} name="category">
+          <option value="celebration">Celebration</option>
+          <option value="inspiration">Inspiration</option>
+          <option value="thankyou">Thank You</option>
+        </select>Category
         <input onChange={onChange} value={values.owner} name="owner" />Owner
         <input type="submit" />
       </form>
