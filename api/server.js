@@ -10,7 +10,7 @@ server.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      imgSrc: ["'self'", 'data:', 'https://picsum.photos'],
+      imgSrc: ["'self'", 'data:', '*']
     },
   })
 )
