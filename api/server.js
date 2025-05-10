@@ -10,7 +10,8 @@ server.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      imgSrc: ["'self'", 'data:', '*']
+      imgSrc: ["'self'", 'data:', '*'],
+      connectSrc: ["'self'", 'https://api.giphy.com'],
     },
   })
 )
