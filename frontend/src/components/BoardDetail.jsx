@@ -19,7 +19,7 @@ function BoardDetail() {
       <a href="" onClick={goBack}>Back</a>
       <h1>Board Detail</h1>
       <div>
-        <div>{board.title}</div>
+        <div>{board.title}</div>  
         <div>{board.owner}</div>
         <div>{
           board.cards?.map(card => {
