@@ -22,7 +22,7 @@ function NewBoardForm({ setModal }) {
       await postBoard(values)
       setModal(false)
     } catch (e) {
-      console.warn('NewBoardForm not wiping form as something went wrong')
+      console.warn(`NewBoardForm not wiping form as something went wrong: ${e.message}`)
     }
   }
   return (

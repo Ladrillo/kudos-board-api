@@ -27,7 +27,7 @@ function NewCardForm({ boardId, setModal }) {
       setModal(false)
       resetGifs()
     } catch (e) {
-      console.warn('NewCardForm not wiping form as something went wrong')
+      console.warn(`NewCardForm not wiping form as something went wrong: ${e.message}`)
     }
   }
   const onGetGifs = async e => {

@@ -21,7 +21,7 @@ function BoardDetail() {
       <a href="" onClick={goBack}>Back</a>
       <h1>Board Detail</h1>
       {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
-      <button onClick={e => setModal(true)}>Create a Card</button>
+      <button onClick={() => setModal(true)}>Create a Card</button>
       <div>
         <div>{board.title}</div>  
         <div>{board.owner}</div>
