@@ -42,18 +42,20 @@ function Home() {
   const boardsToDisplay = filtered(boards?.filter(searchByTitle) || [])
 
   return (
-    <div>
-      <h1>Boards</h1>
-      {modal && <NewBoardForm setModal={setModal} />}
-      <SearchBox search={search} setSearch={setSearch} />
-      <div className="btn-group">
-        <button className={filter === "" ? 'active' : ""} onClick={onFilter} name="">All</button>
-        <button className={filter === "recent" ? 'active' : ""} onClick={onFilter} name="recent">Recent</button>
-        <button className={filter === "celebration" ? 'active' : ""} onClick={onFilter} name="celebration">Celebration</button>
-        <button className={filter === "thankyou" ? 'active' : ""} onClick={onFilter} name="thankyou">Thank You</button>
-        <button className={filter === "inspiration" ? 'active' : ""} onClick={onFilter} name="inspiration">Inspiration</button>
-      </div>
-      <button onClick={() => setModal(true)}>Create New Board</button>
+    <>
+      <header>
+        <h1>Kudos Boards</h1>
+        {modal && <NewBoardForm setModal={setModal} />}
+        <SearchBox search={search} setSearch={setSearch} />
+        <div className="btn-group">
+          <button className={filter === "" ? 'active' : ""} onClick={onFilter} name="">All</button>
+          <button className={filter === "recent" ? 'active' : ""} onClick={onFilter} name="recent">Recent</button>
+          <button className={filter === "celebration" ? 'active' : ""} onClick={onFilter} name="celebration">Celebration</button>
+          <button className={filter === "thankyou" ? 'active' : ""} onClick={onFilter} name="thankyou">Thank You</button>
+          <button className={filter === "inspiration" ? 'active' : ""} onClick={onFilter} name="inspiration">Inspiration</button>
+        </div>
+      </header>
+      <button className='create' onClick={() => setModal(true)}>Create New Board</button>
       <div className='boards'>
         {
           boardsToDisplay.length
@@ -65,7 +67,7 @@ function Home() {
             : <p>There are no boards to display.</p>
         }
       </div>
-    </div>
+    </>
   )
 }
 

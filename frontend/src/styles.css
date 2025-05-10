@@ -1,3 +1,7 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 :root {
   --header-bg: #282c34;
   --text-light: white;
@@ -6,6 +10,22 @@
   --border-color: #cdcbcb;
   --modal-bg: #29121266;
   --modal-box-shadow: 0 2px 20px #0000004d, 0 4px 6px #0000004d;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 220px;
 }
 
 .board {
@@ -33,6 +53,10 @@
     width: 100%;
     overflow: hidden;
 
+    .category {
+      font-style: italic;
+    }
+
     h3 {
       width: 100%;
       font-size: 0.95rem;
@@ -52,11 +76,12 @@
 .boards, .cards, .gifs {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-group {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: space-between;
 }
 
@@ -110,7 +135,9 @@ button.active {
 }
 
 .board-link,
-.board-button {
+select,
+input,
+button {
   display: inline-block;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
@@ -124,14 +151,37 @@ button.active {
   cursor: pointer;
 }
 
+input {
+  border: 1px solid #ababab;
+}
+
 .board-link:hover,
-.board-button:hover {
+button:hover {
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .board-link:active,
-.board-button:active {
+button:active {
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.create {
+  background-color: rgb(23, 162, 213);
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.delete {
+  color: red;
+  font-weight: bold;
 }
