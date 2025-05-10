@@ -45,6 +45,7 @@ export default function BoardsProvider(props) {
       setBoards(boards => {
         return boards.map(b => {
           if (b.id != boardId) return b
+          if (!b.cards) return { ...b, cards: [newCard] }
           return { ...b, cards: [...b.cards, newCard] }
         })
       })
