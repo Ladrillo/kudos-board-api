@@ -50,10 +50,52 @@ function NewCardForm({ boardId, setModal }) {
       </div>
       <h2>Create New Card</h2>
       <form onSubmit={onSubmit}>
-        <input onChange={onChange} value={values.title} name="title" />Title
-        <input onChange={onChange} value={values.owner} name="owner" />Owner
-        <input onChange={onChange} value={values.description} name="description" />Description
-        <input onChange={onChange} value={values.search} name="search" />Search GIF
+        <div className="input-group">
+          <label>
+            Title
+            <input
+              type="text"
+              name="title"
+              value={values.title}
+              onChange={onChange}
+              placeholder="Enter a title"
+            />
+          </label>
+
+          <label>
+            Owner
+            <input
+              type="text"
+              name="owner"
+              value={values.owner}
+              onChange={onChange}
+              placeholder="Enter owner's name"
+            />
+          </label>
+
+          <label>
+            Description
+            <input
+              type="text"
+              name="description"
+              value={values.description}
+              onChange={onChange}
+              placeholder="Enter a description"
+            />
+          </label>
+
+          <label>
+            Search GIF
+            <input
+              type="text"
+              name="search"
+              value={values.search}
+              onChange={onChange}
+              placeholder="Search for a GIF"
+            />
+          </label>
+        </div>
+
         <button onClick={onGetGifs}>Search</button>
         <div class="gifs">
           {gifs.length &&
