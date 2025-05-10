@@ -44,71 +44,73 @@ function NewCardForm({ boardId, setModal }) {
     setValues(val => ({ ...val, gif: url }))
   }
   return (
-    <div>
-      <div>
-        <button onClick={() => setModal(false)}>Close</button>
+    <div className='modal'>
+      <div className='content'>
+        <div>
+          <button onClick={() => setModal(false)}>Close</button>
+        </div>
+        <h2>Create New Card</h2>
+        <form onSubmit={onSubmit}>
+          <div className="input-group">
+            <label>
+              Title
+              <input
+                type="text"
+                name="title"
+                value={values.title}
+                onChange={onChange}
+                placeholder="Enter a title"
+              />
+            </label>
+
+            <label>
+              Owner
+              <input
+                type="text"
+                name="owner"
+                value={values.owner}
+                onChange={onChange}
+                placeholder="Enter owner's name"
+              />
+            </label>
+
+            <label>
+              Description
+              <input
+                type="text"
+                name="description"
+                value={values.description}
+                onChange={onChange}
+                placeholder="Enter a description"
+              />
+            </label>
+
+            <label>
+              Search GIF
+              <input
+                type="text"
+                name="search"
+                value={values.search}
+                onChange={onChange}
+                placeholder="Search for a GIF"
+              />
+            </label>
+          </div>
+
+          <button onClick={onGetGifs}>Search</button>
+          <div class="gifs">
+            {gifs.length &&
+              gifs.map(url => (
+                <div key={url} onClick={onGifSelect(url)}>
+                  <img src={url} alt="gif" />
+                </div>
+              ))
+            }
+          </div>
+          <input onChange={onChange} value={values.gif} name="gif" disabled />Gif
+          <input type="submit" />
+        </form>
       </div>
-      <h2>Create New Card</h2>
-      <form onSubmit={onSubmit}>
-        <div className="input-group">
-          <label>
-            Title
-            <input
-              type="text"
-              name="title"
-              value={values.title}
-              onChange={onChange}
-              placeholder="Enter a title"
-            />
-          </label>
-
-          <label>
-            Owner
-            <input
-              type="text"
-              name="owner"
-              value={values.owner}
-              onChange={onChange}
-              placeholder="Enter owner's name"
-            />
-          </label>
-
-          <label>
-            Description
-            <input
-              type="text"
-              name="description"
-              value={values.description}
-              onChange={onChange}
-              placeholder="Enter a description"
-            />
-          </label>
-
-          <label>
-            Search GIF
-            <input
-              type="text"
-              name="search"
-              value={values.search}
-              onChange={onChange}
-              placeholder="Search for a GIF"
-            />
-          </label>
-        </div>
-
-        <button onClick={onGetGifs}>Search</button>
-        <div class="gifs">
-          {gifs.length &&
-            gifs.map(url => (
-              <div key={url} onClick={onGifSelect(url)}>
-                <img src={url} alt="gif" />
-              </div>
-            ))
-          }
-        </div>
-        <input onChange={onChange} value={values.gif} name="gif" disabled />Gif
-        <input type="submit" />
-      </form>
     </div>
   )
 }
