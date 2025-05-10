@@ -46,8 +46,8 @@ function NewCardForm({ boardId, setModal }) {
   return (
     <div className='modal'>
       <div className='content'>
-        <div>
-          <button onClick={() => setModal(false)}>Close</button>
+        <div className='close'>
+          <button onClick={() => setModal(false)}>&times;</button>
         </div>
         <h2>Create New Card</h2>
         <form onSubmit={onSubmit}>
