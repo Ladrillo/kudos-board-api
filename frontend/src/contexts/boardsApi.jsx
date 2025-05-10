@@ -15,7 +15,7 @@ export default function BoardsProvider(props) {
         },
       })
       const json = await res.json()
-      if (!res.ok) throw new Error('Request failed...')
+      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
       setBoards(boards => {
         return [...boards, json]
       })
@@ -30,7 +30,7 @@ export default function BoardsProvider(props) {
       const res = await fetch(`/api/boards/${id}`, {
         method: 'DELETE',
       })
-      if (!res.ok) throw new Error('Request failed...')
+      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
       setBoards(boards => {
         return boards.filter(b => b.id != id)
       })
@@ -45,20 +45,44 @@ export default function BoardsProvider(props) {
       const res = await fetch(`/api/boards/${boardId}/cards/${cardId}`, {
         method: 'DELETE',
       })
-      if (!res.ok) throw new Error('Request failed...')
+      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
       setBoards(boards => {
         const boardOfInterest = boards.find(b => b.id == boardId)
         return boards.map(b => {
-          if (b.id == boardId) {
-            return {
-              ...boardOfInterest,
-              cards: boardOfInterest.cards.filter(c => c.id != cardId)
-            }
+          if (b.id != boardId) return b
+          return {
+            ...boardOfInterest,
+            cards: boardOfInterest.cards.filter(c => c.id != cardId)
           }
         })
       })
     } catch (e) {
       console.warn('deleteCard operation failed')
+      throw e
+    }
+  }
+
+  async function upvoteCard(boardId, cardId) {
+    try {
+      const res = await fetch(`/api/boards/${boardId}/cards/${cardId}`, {
+        method: 'PATCH',
+      })
+      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
+      setBoards(boards => {
+        const boardOfInterest = boards.find(b => b.id == boardId)
+        return boards.map(b => {
+          if (b != boardOfInterest) return b
+          return {
+            ...boardOfInterest,
+            cards: boardOfInterest.cards.map(c => {
+              if (c.id != cardId) return c
+              return { ...c, votes: c.votes + 1 }
+            })
+          }
+        })
+      })
+    } catch (e) {
+      console.warn('upvoteCard operation failed')
       throw e
     }
   }
@@ -73,7 +97,7 @@ export default function BoardsProvider(props) {
   }, [])
 
   return (
-    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard, deleteCard }}>
+    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard, deleteCard, upvoteCard }}>
       {props.children}
     </BoardsContext.Provider>
   )
