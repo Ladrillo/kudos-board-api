@@ -207,4 +207,9 @@ label {
 
 input[type=submit] {
   margin-top: 2rem;
+
+  &:disabled {
+    background-color: rgb(201, 201, 201);
+    cursor: not-allowed;
+  }
 }

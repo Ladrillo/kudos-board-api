@@ -64,7 +64,7 @@ function NewBoardForm({ setModal }) {
             onChange={onChange}
           />
 
-          <input type="submit" />
+          <input type="submit" disabled={Object.values(values).some(v => !v.trim())} />
         </form>
 
       </div>
