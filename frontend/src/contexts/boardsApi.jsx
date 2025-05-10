@@ -18,12 +18,38 @@ export default function BoardsProvider(props) {
         const errorText = await res.text()
         throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
       }
-      const json = await res.json()
+      const newBoard = await res.json()
       setBoards(boards => {
-        return [...boards, json]
+        return [...boards, newBoard]
       })
     } catch (e) {
       console.warn('postBoard operation failed')
+      throw e
+    }
+  }
+
+  async function postCard(boardId, { title, owner, description, gif }) {
+    try {
+      const res = await fetch(`/api/boards/${boardId}/cards`, {
+        method: 'POST',
+        body: JSON.stringify({ title, owner, description, gif }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
+      }
+      const newCard = await res.json()
+      setBoards(boards => {
+        return boards.map(b => {
+          if (b.id != boardId) return b
+          return { ...b, cards: [...b.cards, newCard] }
+        })
+      })
+    } catch (e) {
+      console.warn('postCard operation failed')
       throw e
     }
   }
@@ -109,8 +135,12 @@ export default function BoardsProvider(props) {
     getBoards()
   }, [])
 
+  const api = {
+    boards, deleteBoard, postBoard, deleteCard, upvoteCard, postCard,
+  }
+
   return (
-    <BoardsContext.Provider value={{ boards, deleteBoard, postBoard, deleteCard, upvoteCard }}>
+    <BoardsContext.Provider value={api}>
       {props.children}
     </BoardsContext.Provider>
   )

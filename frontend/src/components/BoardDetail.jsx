@@ -1,8 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { BoardsContext } from '../contexts/boardsApi'
+import NewCardForm from './NewCardForm'
 
 function BoardDetail() {
+  const [modal, setModal] = useState(false)
   const { boards, deleteCard, upvoteCard } = useContext(BoardsContext)
   const { id } = useParams()
   const board = boards?.find(brd => brd.id == id)
@@ -18,6 +20,8 @@ function BoardDetail() {
     <div className="card">
       <a href="" onClick={goBack}>Back</a>
       <h1>Board Detail</h1>
+      {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
+      <button onClick={e => setModal(true)}>Create a Card</button>
       <div>
         <div>{board.title}</div>  
         <div>{board.owner}</div>
