@@ -14,8 +14,11 @@ export default function BoardsProvider(props) {
           'Content-Type': 'application/json'
         },
       })
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
+      }
       const json = await res.json()
-      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
       setBoards(boards => {
         return [...boards, json]
       })
@@ -30,7 +33,10 @@ export default function BoardsProvider(props) {
       const res = await fetch(`/api/boards/${id}`, {
         method: 'DELETE',
       })
-      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
+      }
       setBoards(boards => {
         return boards.filter(b => b.id != id)
       })
@@ -45,7 +51,10 @@ export default function BoardsProvider(props) {
       const res = await fetch(`/api/boards/${boardId}/cards/${cardId}`, {
         method: 'DELETE',
       })
-      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
+      }
       setBoards(boards => {
         const boardOfInterest = boards.find(b => b.id == boardId)
         return boards.map(b => {
@@ -67,7 +76,11 @@ export default function BoardsProvider(props) {
       const res = await fetch(`/api/boards/${boardId}/cards/${cardId}`, {
         method: 'PATCH',
       })
-      if (!res.ok) throw new Error(`${res.status} Request was not OK`)
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`${res.status} ${res.statusText}: ${errorText}`)
+      }
+      const upvoted = await res.json()
       setBoards(boards => {
         const boardOfInterest = boards.find(b => b.id == boardId)
         return boards.map(b => {
@@ -76,7 +89,7 @@ export default function BoardsProvider(props) {
             ...boardOfInterest,
             cards: boardOfInterest.cards.map(c => {
               if (c.id != cardId) return c
-              return { ...c, votes: c.votes + 1 }
+              return upvoted
             })
           }
         })
