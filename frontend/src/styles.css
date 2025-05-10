@@ -12,3 +12,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.btn-group {
+  display: flex;
+}
