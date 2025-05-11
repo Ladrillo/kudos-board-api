@@ -135,6 +135,8 @@ Deployed Application: [Kudos Board Deployed Site](https://kudos-board-api.onrend
 
 ### Walkthrough Video
 
+❗ **NOTE for the reviewer**: during the video walkthrough I forgot to demo the "upvote" functionality. But **it is working** as you can verify in the deployed app.
+
 Please [CLICK HERE](https://www.loom.com/share/77f1fe2e24764616ae09ac172b0363ff) to watch the video walkthrough of this project.
 
 ### Reflection
