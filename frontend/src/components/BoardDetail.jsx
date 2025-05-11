@@ -18,7 +18,7 @@ function BoardDetail() {
 
   return (
     <div className="board-detail">
-      <a href="" onClick={goBack}>Back</a>
+      <a className='back board-link' href="" onClick={goBack}>◀ Back</a>
       <h2>Board Detail</h2>
       {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
       <button className='create' onClick={() => setModal(true)}>Create a Card</button>
@@ -29,7 +29,7 @@ function BoardDetail() {
           board.cards?.map(card => {
             return (
               <div className='board' key={card.id}>
-                <div>{card.title}</div>
+                <h4>{card.title}</h4>
                 {card.owner && <div>{card.owner}</div>} 
                 <div><img src={card.gif} /></div>
                 <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
