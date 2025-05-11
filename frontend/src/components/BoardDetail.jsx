@@ -31,7 +31,7 @@ function BoardDetail() {
                 <div className='card-content col'>
                   <div className='card-info col'>
                     <h4>{card.title}</h4>
-                    <div>{card.description} {card.owner && <>({card.owner})</>}</div>
+                    <p className='clamp'>{card.description} {card.owner && <>({card.owner})</>}</p>
                   </div>
                   <div><img src={card.gif} /></div>
                 </div>

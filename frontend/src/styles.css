@@ -79,9 +79,14 @@ header {
 .card .card-content .card-info {
   height: 160px;
   padding: 0.75rem;
-  div {
+  p.clamp {
     margin-top: 0.75rem;
     font-size: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Number of lines to allow */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
