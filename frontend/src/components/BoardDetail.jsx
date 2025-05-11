@@ -18,21 +18,24 @@ function BoardDetail() {
 
   return (
     <div className="board-detail">
-      <a className='back board-link' href="" onClick={goBack}>◀ Back</a>
-      <h2>Board Detail</h2>
       {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
+      <a className='back board-link' href="" onClick={goBack}>◀ Back</a>
+      <h2>{board.title}</h2>
+      <div>{board.owner}</div>
       <button className='create' onClick={() => setModal(true)}>Create a Card</button>
       <div className='col'>
-        <h3>{board.title}</h3>  
-        <div>{board.owner}</div>
         <div className='cards'>{
           board.cards?.map(card => {
             return (
-              <div className='board' key={card.id}>
-                <h4>{card.title}</h4>
-                {card.owner && <div>{card.owner}</div>} 
-                <div><img src={card.gif} /></div>
-                <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
+              <div className='card' key={card.id}>
+                <div className='card-content col'>
+                  <div className='card-info col'>
+                    <h4>{card.title}</h4>
+                    {card.owner && <div>{card.owner}</div>}
+                  </div>
+                  <div><img src={card.gif} /></div>
+                  <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
+                </div>
                 <button className='delete' onClick={() => deleteCard(board.id, card.id)}>Delete</button>
               </div>
             )
