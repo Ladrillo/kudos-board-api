@@ -245,11 +245,22 @@ input[type=submit] {
   h4 {
     margin-top: 1rem;
   }
-  
+
   .card-content {
 
     .card-info {
       height: 75px;
     }
+  }
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+}
+
+.board-detail {
+  .create {
+      margin-top: 2rem;
   }
 }

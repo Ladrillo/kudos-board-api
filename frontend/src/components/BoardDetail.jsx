@@ -34,9 +34,11 @@ function BoardDetail() {
                     {card.owner && <div>{card.owner}</div>}
                   </div>
                   <div><img src={card.gif} /></div>
-                  <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
                 </div>
-                <button className='delete' onClick={() => deleteCard(board.id, card.id)}>Delete</button>
+                <div className="card-footer">
+                  <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
+                  <button className='delete' onClick={() => deleteCard(board.id, card.id)}>Delete</button>
+                </div>
               </div>
             )
           })
