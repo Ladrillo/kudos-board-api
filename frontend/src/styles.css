@@ -77,7 +77,12 @@ header {
 }
 
 .card .card-content .card-info {
-  height: 75px;
+  height: 160px;
+  padding: 0.75rem;
+  div {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+  }
 }
 
 .card .card-footer {
