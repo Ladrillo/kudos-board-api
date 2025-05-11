@@ -3,11 +3,11 @@ import { BoardsContext } from '../contexts/boardsApi'
 import { GifsContext } from '../contexts/gifsApi'
 
 const initialValues = () => ({
-  title: 'the title',
-  owner: 'the owner',
-  description: 'the desc',
+  title: '',
+  owner: '',
+  description: '',
   gif: '',
-  search: 'torero',
+  search: '',
 })
 
 function NewCardForm({ boardId, setModal }) {
