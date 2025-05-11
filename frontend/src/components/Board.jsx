@@ -9,7 +9,7 @@ const categories = {
 function BoardCard({ board, deleteBoard }) {
   return (
     <div className="board">
-      <div><img src={`https://picsum.photos/seed/${board.id}/200/300`} alt="Seeded Random Image"></img></div>
+      <div><img src={`https://picsum.photos/seed/${board.id}/200/200`} alt="Seeded Random Image"></img></div>
       <div className='board-info'>
         <h3>{board.title}</h3>
         <div className='category'>{categories[board.category]}</div>
