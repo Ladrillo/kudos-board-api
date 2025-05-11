@@ -21,9 +21,9 @@ function BoardDetail() {
       <a href="" onClick={goBack}>Back</a>
       <h2>Board Detail</h2>
       {modal && <NewCardForm boardId={board.id} setModal={setModal} />}
-      <button onClick={() => setModal(true)}>Create a Card</button>
-      <div>
-        <div>{board.title}</div>  
+      <button className='create' onClick={() => setModal(true)}>Create a Card</button>
+      <div className='col'>
+        <h3>{board.title}</h3>  
         <div>{board.owner}</div>
         <div className='cards'>{
           board.cards?.map(card => {
@@ -31,10 +31,9 @@ function BoardDetail() {
               <div className='board' key={card.id}>
                 <div>{card.title}</div>
                 {card.owner && <div>{card.owner}</div>} 
-                <div>{card.votes}</div>
                 <div><img src={card.gif} /></div>
-                <button onClick={() => upvoteCard(board.id, card.id)}>Upvote</button>
-                <button onClick={() => deleteCard(board.id, card.id)}>Delete</button>
+                <button onClick={() => upvoteCard(board.id, card.id)}>{card.votes} Upvote</button>
+                <button className='delete' onClick={() => deleteCard(board.id, card.id)}>Delete</button>
               </div>
             )
           })

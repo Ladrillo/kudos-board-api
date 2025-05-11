@@ -121,7 +121,7 @@ button.active {
       align-self: flex-start;
       float: right;
       color: #aaa;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       cursor: pointer;
 
@@ -186,11 +186,11 @@ footer {
   font-weight: bold;
 }
 
-form.create-board {
+form.create-board, form.create-card {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
   padding-top: 0;
   align-items: center;
 
@@ -200,7 +200,7 @@ form.create-board {
 }
 
 label {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   align-self: flex-start;
   font-weight: bold;
 }
@@ -212,4 +212,20 @@ input[type=submit] {
     background-color: rgb(201, 201, 201);
     cursor: not-allowed;
   }
+}
+
+.board-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.giphy:hover {
+  cursor: pointer;
 }

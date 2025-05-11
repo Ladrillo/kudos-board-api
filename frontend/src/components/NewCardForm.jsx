@@ -6,7 +6,7 @@ const initialValues = () => ({
   title: 'the title',
   owner: 'the owner',
   description: 'the desc',
-  gif: 'http://foo.com',
+  gif: '',
   search: 'torero',
 })
 
@@ -25,7 +25,6 @@ function NewCardForm({ boardId, setModal }) {
     try {
       await postCard(boardId, values)
       setModal(false)
-      resetGifs()
     } catch (e) {
       console.warn(`NewCardForm not wiping form as something went wrong: ${e.message}`)
     }
@@ -42,6 +41,7 @@ function NewCardForm({ boardId, setModal }) {
   const onGifSelect = url => e => {
     e.preventDefault()
     setValues(val => ({ ...val, gif: url }))
+    resetGifs()
   }
   return (
     <div className='modal'>
@@ -49,65 +49,59 @@ function NewCardForm({ boardId, setModal }) {
         <div className='close'>
           <button onClick={() => setModal(false)}>&times;</button>
         </div>
-        <form onSubmit={onSubmit}>
+        <form className='create-card' onSubmit={onSubmit}>
           <h2>Create New Card</h2>
-          <div className="input-group">
-            <label>
-              Title
-              <input
-                type="text"
-                name="title"
-                value={values.title}
-                onChange={onChange}
-                placeholder="Enter a title"
-              />
-            </label>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={values.title}
+            onChange={onChange}
+            placeholder="Enter a title"
+          />
 
-            <label>
-              Owner
-              <input
-                type="text"
-                name="owner"
-                value={values.owner}
-                onChange={onChange}
-                placeholder="Enter owner's name"
-              />
-            </label>
+          <label htmlFor="owner">Owner</label>
+          <input
+            type="text"
+            id="owner"
+            name="owner"
+            value={values.owner}
+            onChange={onChange}
+            placeholder="Enter owner's name"
+          />
 
-            <label>
-              Description
-              <input
-                type="text"
-                name="description"
-                value={values.description}
-                onChange={onChange}
-                placeholder="Enter a description"
-              />
-            </label>
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={values.description}
+            onChange={onChange}
+            placeholder="Enter a description"
+          />
 
-            <label>
-              Search GIF
-              <input
-                type="text"
-                name="search"
-                value={values.search}
-                onChange={onChange}
-                placeholder="Search for a GIF"
-              />
-            </label>
-          </div>
+          <label htmlFor="search">Search GIF</label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            value={values.search}
+            onChange={onChange}
+            placeholder="Search for a GIF"
+          />
 
-          <button onClick={onGetGifs}>Search</button>
+          <button onClick={onGetGifs}>Search Gif</button>
           <div class="gifs">
-            {gifs.length &&
+            {gifs.length > 0 &&
               gifs.map(url => (
-                <div key={url} onClick={onGifSelect(url)}>
+                <div className='giphy' key={url} onClick={onGifSelect(url)}>
                   <img src={url} alt="gif" />
                 </div>
               ))
             }
           </div>
-          <input onChange={onChange} value={values.gif} name="gif" disabled />Gif
+          <input onChange={onChange} value={values.gif} name="gif" disabled />
           <input type="submit" />
         </form>
       </div>
