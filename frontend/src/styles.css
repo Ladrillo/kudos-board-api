@@ -233,9 +233,11 @@ input[type="submit"] {
   margin-top: 2rem;
 }
 
-input[type="submit"]:disabled {
+input[type="submit"]:disabled,
+button[disabled] {
   background-color: rgb(201, 201, 201);
   cursor: not-allowed;
+  color: black;
 }
 
 .board-detail {

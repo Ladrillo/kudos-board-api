@@ -43,6 +43,10 @@ function NewCardForm({ boardId, setModal }) {
     setValues(val => ({ ...val, gif: url }))
     resetGifs()
   }
+  const isDisabled = () => {
+    const { owner, ...rest } = values
+    return Object.values(rest).some(v => !v.trim())
+  }
   return (
     <div className='modal'>
       <div className='content'>
@@ -91,7 +95,7 @@ function NewCardForm({ boardId, setModal }) {
             placeholder="Search for a GIF"
           />
 
-          <button onClick={onGetGifs}>Search Gif</button>
+          <button disabled={!values.search.trim()} onClick={onGetGifs}>Search Gif</button>
           <div class="gifs">
             {gifs.length > 0 &&
               gifs.map(url => (
@@ -102,7 +106,7 @@ function NewCardForm({ boardId, setModal }) {
             }
           </div>
           <input onChange={onChange} value={values.gif} name="gif" disabled />
-          <input type="submit" />
+          <input disabled={isDisabled()} type="submit" />
         </form>
       </div>
     </div>
